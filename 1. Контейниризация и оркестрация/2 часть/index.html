@@ -73,15 +73,7 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#_1">Запуск</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_2">Серверная часть</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_3">Клиентская часть</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_4">Добавление нового пользователя через терминал</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#pgadmin">pgAdmin</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_5">Подключение созданного пользователя</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">Результаты</a>
     </li>
     </ul>
                 </li>
@@ -223,23 +215,28 @@
               
                 <h1 id="docker-compose">Оркестрация средствами Docker-compose</h1>
 <h2 id="docker-composeyml">docker-compose.yml</h2>
-<p><img alt="compose_1" src="compose_1.png" />
+<p>Для оркестрации создается файл docker-compose.yml, в котором описана работа 4 сервисов.
+<img alt="compose_1" src="compose_1.png" />
 <img alt="compose_2" src="compose_2.png" /></p>
 <h2 id="dockerfile">Dockerfile для запуска клиентской части проекта</h2>
-<p><img alt="dockerfile_2" src="dockerfile_2.png" /></p>
+<p>Создается аналогичным докерфайлу для бэкенд части. Дополнительно устанавливается
+компонент слайдера для навигационной панели.
+<img alt="dockerfile_2" src="dockerfile_2.png" /></p>
 <h2 id="_1">Запуск</h2>
-<p><img alt="start" src="start.png" />
+<p>Запуск производится через терминал с помощью команды docker-compose up.
+<img alt="start" src="start.png" />
 <img alt="ps" src="ps.png" /></p>
-<h2 id="_2">Серверная часть</h2>
-<p><img alt="server" src="server.png" /></p>
-<h2 id="_3">Клиентская часть</h2>
-<p><img alt="client" src="client.png" /></p>
-<h2 id="_4">Добавление нового пользователя через терминал</h2>
-<p><img alt="user_create" src="user_create.png" /></p>
-<h2 id="pgadmin">pgAdmin</h2>
-<p><img alt="pgadmin" src="pgadmin.png" /></p>
-<h2 id="_5">Подключение созданного пользователя</h2>
-<p><img alt="user" src="user.png" /></p>
+<h2 id="_2">Результаты</h2>
+<p>Серверная часть:
+<img alt="server" src="server.png" /></p>
+<p>Клиентская часть:
+<img alt="client" src="client.png" /></p>
+<p>Команды для добавления нового пользователя через терминал:
+<img alt="user_create" src="user_create.png" /></p>
+<p>Подключение созданного пользователя:
+<img alt="user" src="user.png" /></p>
+<p>pgAdmin:
+<img alt="pgadmin" src="pgadmin.png" /></p>
               
             </div>
           </div>

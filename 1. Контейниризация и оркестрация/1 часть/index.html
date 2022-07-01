@@ -211,9 +211,14 @@
               
                 <h1 id="docker">Контейниризация средствами Docker</h1>
 <h2 id="dockerfile">Dockerfile для запуска бэкенд части проекта</h2>
-<p><img alt="dockerfile" src="dockerfile.png" /></p>
+<p>Создается рабочая директория, в которую копируются все файлы. Устанавливаются
+все необходимые библиотеки, описанные в файле requirements.txt, и с помощью
+команды python manage.py runserver запускается серверная часть.
+<img alt="dockerfile" src="dockerfile.png" /></p>
 <h2 id="_1">Выполнение миграций</h2>
-<p><img alt="migrate" src="migrate.png" /></p>
+<p>С помощью команды docker ps можно узнать id контейнера, чтобы потом с помощью 
+нижепредставленной команды в нем было возможно выполнить миграции.
+<img alt="migrate" src="migrate.png" /></p>
               
             </div>
           </div>
