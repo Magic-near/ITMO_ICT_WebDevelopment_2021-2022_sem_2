@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>API - Hotel</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "API";
+    var mkdocs_page_input_path = "2. API/index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Hotel</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Титульный лист</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">0. Введение</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../0.%20%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5/">Введение</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">1. Цель и задачи проекта</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../1.%20%D0%A6%D0%B5%D0%BB%D1%8C%20%D0%B8%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/">Цель и задачи</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">2. API</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">API</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#hotelsbookings">/hotels/bookings/</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_1">Список бронирований</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">Создание брони</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">Обновление/удаление брони</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">Просмотр брони</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hotelsclients">/hotels/clients/</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">Список гостей</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">Создание гостя</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_7">Обновление/удаление гостя</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_8">Просмотр гостя</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hotelscomments">/hotels/comments/</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_9">Список комментариев</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_10">Создание комментария</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_11">Обновление/удаление комментария</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_12">Просмотр комментария</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hotelsemployees">/hotels/employees/</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_13">Список сотрудников</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_14">Создание сотрудника</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_15">Обновление/удаление сотрудника</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_16">Просмотр сотрудника</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hotelsrooms">/hotels/rooms/</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_17">Список комнат</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_18">Создание комнаты</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_19">Обновление/удаление комнаты</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_20">Просмотр комнаты</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">3. Выполнение этапов разработки</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="#">1. Контейниризация и оркестрация</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="#">1 часть</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../3.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D1%82%D0%B0%D0%BF%D0%BE%D0%B2%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8/1.%20%D0%9A%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B8%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B8%20%D0%BE%D1%80%D0%BA%D0%B5%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F/1%20%D1%87%D0%B0%D1%81%D1%82%D1%8C/">Контейниризация средствами Docker</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">2 часть</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../3.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D1%82%D0%B0%D0%BF%D0%BE%D0%B2%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8/1.%20%D0%9A%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B8%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B8%20%D0%BE%D1%80%D0%BA%D0%B5%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F/2%20%D1%87%D0%B0%D1%81%D1%82%D1%8C/">Оркестрация средствами Docker-compose</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">2. Возможности Django REST</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="#">2.1 Фильтры</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="#">Задание 2.1.1</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../3.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D1%82%D0%B0%D0%BF%D0%BE%D0%B2%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8/2.%20%D0%92%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20Django%20REST/2.1%20%D0%A4%D0%B8%D0%BB%D1%8C%D1%82%D1%80%D1%8B/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%202.1.1/">Ручные фильтры</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="#">Задание 2.1.2</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../3.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D1%82%D0%B0%D0%BF%D0%BE%D0%B2%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8/2.%20%D0%92%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20Django%20REST/2.1%20%D0%A4%D0%B8%D0%BB%D1%8C%D1%82%D1%80%D1%8B/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%202.1.2/">Автоматические фильтры</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">2.2 Пагинация</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="#">Задание 2.2.1</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../3.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D1%82%D0%B0%D0%BF%D0%BE%D0%B2%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8/2.%20%D0%92%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20Django%20REST/2.2%20%D0%9F%D0%B0%D0%B3%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D1%8F/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%202.2.1/">Пагинация</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="#">Задание 2.2.2</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../3.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D1%82%D0%B0%D0%BF%D0%BE%D0%B2%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8/2.%20%D0%92%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20Django%20REST/2.2%20%D0%9F%D0%B0%D0%B3%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D1%8F/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%202.2.2/">Кастомная пагинация</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">2.3. Загрузка файлов</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="#">Задание 2.3.1</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../3.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D1%82%D0%B0%D0%BF%D0%BE%D0%B2%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8/2.%20%D0%92%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20Django%20REST/2.3.%20%D0%97%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B0%20%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%202.3.1/">Загрузка и валидация файлов</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">2.4. Сигналы</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="#">Задание 2.4.1</a>
+    <ul>
+                <li class="toctree-l4"><a class="reference internal" href="../3.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D1%82%D0%B0%D0%BF%D0%BE%D0%B2%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8/2.%20%D0%92%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20Django%20REST/2.4.%20%D0%A1%D0%B8%D0%B3%D0%BD%D0%B0%D0%BB%D1%8B/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%202.4.1/">Cигналы</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">3. Тесты Django REST Framework</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="#">3.1.1</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../3.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D1%82%D0%B0%D0%BF%D0%BE%D0%B2%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8/3.%20%D0%A2%D0%B5%D1%81%D1%82%D1%8B%20Django%20REST%20Framework/3.1.1/">Тесты на модель</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">3.1.2</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../3.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D1%82%D0%B0%D0%BF%D0%BE%D0%B2%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8/3.%20%D0%A2%D0%B5%D1%81%D1%82%D1%8B%20Django%20REST%20Framework/3.1.2/">Тесты на GET запросы</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">3.1.3</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../3.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D1%82%D0%B0%D0%BF%D0%BE%D0%B2%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8/3.%20%D0%A2%D0%B5%D1%81%D1%82%D1%8B%20Django%20REST%20Framework/3.1.3/">Тесты на POST запросы</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">3.1.4</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../3.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D1%82%D0%B0%D0%BF%D0%BE%D0%B2%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8/3.%20%D0%A2%D0%B5%D1%81%D1%82%D1%8B%20Django%20REST%20Framework/3.1.4/">Тесты на PATCH запросы</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">4. Адаптация интерфейсов Vue.js</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../3.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D1%82%D0%B0%D0%BF%D0%BE%D0%B2%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8/4.%20%D0%90%D0%B4%D0%B0%D0%BF%D1%82%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%BE%D0%B2%20Vue.js/">Описание интерфейсов</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">4. Выводы</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../4.%20%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%D1%8B/">Выводы</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Hotel</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>2. API &raquo;</li>
+        
+      
+    
+    <li>API</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="api">API</h1>
+<h2 id="hotelsbookings">/hotels/bookings/</h2>
+<h3 id="_1">Список бронирований</h3>
+<p>URL: /hotels/bookings/ <br />
+Method: GET <br />
+Code: 200 OK <br />
+Response sample:   </p>
+<pre><code>{
+  &quot;count&quot;: 0,
+  &quot;next&quot;: &quot;http://example.com&quot;,
+  &quot;previous&quot;: &quot;http://example.com&quot;,
+  &quot;results&quot;: [
+    {
+      &quot;id&quot;: 0,
+      &quot;check_in&quot;: &quot;2019-08-24&quot;,
+      &quot;check_out&quot;: &quot;2019-08-24&quot;,
+      &quot;room&quot;: 0,
+      &quot;client&quot;: 0
+    }
+  ]
+}
+</code></pre>
+<h3 id="_2">Создание брони</h3>
+<p>URL: /hotels/bookings/create/ <br />
+Method: POST <br />
+Code: 200 OK <br />
+Request sample:   </p>
+<pre><code>{
+  &quot;check_in&quot;: &quot;2019-08-24&quot;,
+  &quot;check_out&quot;: &quot;2019-08-24&quot;,
+  &quot;room&quot;: 0,
+  &quot;client&quot;: 0
+}
+</code></pre>
+<h3 id="_3">Обновление/удаление брони</h3>
+<p>URL: /hotels/bookings/update/{id}/ <br />
+Method: GET, PUT, PATCH, DELETE <br />
+Code: 200 OK <br />
+Response sample:   </p>
+<pre><code>{
+  &quot;id&quot;: 0,
+  &quot;check_in&quot;: &quot;2019-08-24&quot;,
+  &quot;check_out&quot;: &quot;2019-08-24&quot;,
+  &quot;room&quot;: 0,
+  &quot;client&quot;: 0
+}
+</code></pre>
+<h3 id="_4">Просмотр брони</h3>
+<p>URL: /hotels/bookings/{id}/ <br />
+Method: GET <br />
+Code: 200 OK <br />
+Response sample:   </p>
+<pre><code>{
+  &quot;id&quot;: 0,
+  &quot;check_in&quot;: &quot;2019-08-24&quot;,
+  &quot;check_out&quot;: &quot;2019-08-24&quot;,
+  &quot;room&quot;: 0,
+  &quot;client&quot;: 0
+}
+</code></pre>
+<h2 id="hotelsclients">/hotels/clients/</h2>
+<h3 id="_5">Список гостей</h3>
+<p>URL: /hotels/clients/ <br />
+Method: GET <br />
+Code: 200 OK <br />
+Response sample:   </p>
+<pre><code>{
+  &quot;count&quot;: 0,
+  &quot;next&quot;: &quot;http://example.com&quot;,
+  &quot;previous&quot;: &quot;http://example.com&quot;,
+  &quot;results&quot;: [
+    {
+      &quot;id&quot;: 0,
+      &quot;last_login&quot;: &quot;2019-08-24T14:15:22Z&quot;,
+      &quot;is_superuser&quot;: true,
+      &quot;email&quot;: &quot;user@example.com&quot;,
+      &quot;is_staff&quot;: true,
+      &quot;is_active&quot;: true,
+      &quot;date_joined&quot;: &quot;2019-08-24T14:15:22Z&quot;,
+      &quot;username&quot;: &quot;string&quot;,
+      &quot;password&quot;: &quot;string&quot;,
+      &quot;passport&quot;: &quot;string&quot;,
+      &quot;last_name&quot;: &quot;string&quot;,
+      &quot;first_name&quot;: &quot;string&quot;,
+      &quot;patronymic&quot;: &quot;string&quot;,
+      &quot;town&quot;: &quot;string&quot;,
+      &quot;number&quot;: 0,
+      &quot;groups&quot;: [
+        0
+      ],
+      &quot;user_permissions&quot;: [
+        0
+      ],
+      &quot;room_booked&quot;: [
+        0
+      ]
+    }
+  ]
+}
+</code></pre>
+<h3 id="_6">Создание гостя</h3>
+<p>URL: /hotels/clients/create/ <br />
+Method: POST <br />
+Code: 200 OK <br />
+Request sample:   </p>
+<pre><code>{
+  &quot;last_login&quot;: &quot;2019-08-24T14:15:22Z&quot;,
+  &quot;is_superuser&quot;: true,
+  &quot;email&quot;: &quot;user@example.com&quot;,
+  &quot;is_staff&quot;: true,
+  &quot;is_active&quot;: true,
+  &quot;date_joined&quot;: &quot;2019-08-24T14:15:22Z&quot;,
+  &quot;username&quot;: &quot;string&quot;,
+  &quot;password&quot;: &quot;string&quot;,
+  &quot;passport&quot;: &quot;string&quot;,
+  &quot;last_name&quot;: &quot;string&quot;,
+  &quot;first_name&quot;: &quot;string&quot;,
+  &quot;patronymic&quot;: &quot;string&quot;,
+  &quot;town&quot;: &quot;string&quot;,
+  &quot;number&quot;: 0,
+  &quot;groups&quot;: [
+    0
+  ],
+  &quot;user_permissions&quot;: [
+    0
+  ]
+}
+</code></pre>
+<h3 id="_7">Обновление/удаление гостя</h3>
+<p>URL: /hotels/clients/update/{id}/ <br />
+Method: GET, PUT, PATCH, DELETE <br />
+Code: 200 OK <br />
+Response sample:   </p>
+<pre><code>{
+  &quot;id&quot;: 0,
+  &quot;last_login&quot;: &quot;2019-08-24T14:15:22Z&quot;,
+  &quot;is_superuser&quot;: true,
+  &quot;email&quot;: &quot;user@example.com&quot;,
+  &quot;is_staff&quot;: true,
+  &quot;is_active&quot;: true,
+  &quot;date_joined&quot;: &quot;2019-08-24T14:15:22Z&quot;,
+  &quot;username&quot;: &quot;string&quot;,
+  &quot;password&quot;: &quot;string&quot;,
+  &quot;passport&quot;: &quot;string&quot;,
+  &quot;last_name&quot;: &quot;string&quot;,
+  &quot;first_name&quot;: &quot;string&quot;,
+  &quot;patronymic&quot;: &quot;string&quot;,
+  &quot;town&quot;: &quot;string&quot;,
+  &quot;number&quot;: 0,
+  &quot;groups&quot;: [
+    0
+  ],
+  &quot;user_permissions&quot;: [
+    0
+  ],
+  &quot;room_booked&quot;: [
+    0
+  ]
+}
+</code></pre>
+<h3 id="_8">Просмотр гостя</h3>
+<p>URL: /hotels/clients/{id}/ <br />
+Method: GET <br />
+Code: 200 OK <br />
+Response sample:   </p>
+<pre><code>{
+  &quot;id&quot;: 0,
+  &quot;room_booked&quot;: [
+    {
+      &quot;id&quot;: 0,
+      &quot;number&quot;: 0,
+      &quot;type&quot;: &quot;single&quot;,
+      &quot;phone&quot;: &quot;string&quot;,
+      &quot;price&quot;: 0,
+      &quot;floor&quot;: 0,
+      &quot;client_in&quot;: [
+        0
+      ]
+    }
+  ],
+  &quot;last_login&quot;: &quot;2019-08-24T14:15:22Z&quot;,
+  &quot;is_superuser&quot;: true,
+  &quot;email&quot;: &quot;user@example.com&quot;,
+  &quot;is_staff&quot;: true,
+  &quot;is_active&quot;: true,
+  &quot;date_joined&quot;: &quot;2019-08-24T14:15:22Z&quot;,
+  &quot;username&quot;: &quot;string&quot;,
+  &quot;password&quot;: &quot;string&quot;,
+  &quot;passport&quot;: &quot;string&quot;,
+  &quot;last_name&quot;: &quot;string&quot;,
+  &quot;first_name&quot;: &quot;string&quot;,
+  &quot;patronymic&quot;: &quot;string&quot;,
+  &quot;town&quot;: &quot;string&quot;,
+  &quot;number&quot;: 0,
+  &quot;groups&quot;: [
+    0
+  ],
+  &quot;user_permissions&quot;: [
+    0
+  ]
+}
+</code></pre>
+<h2 id="hotelscomments">/hotels/comments/</h2>
+<h3 id="_9">Список комментариев</h3>
+<p>URL: /hotels/comments/ <br />
+Method: GET <br />
+Code: 200 OK <br />
+Response sample:   </p>
+<pre><code>{
+  &quot;count&quot;: 0,
+  &quot;next&quot;: &quot;http://example.com&quot;,
+  &quot;previous&quot;: &quot;http://example.com&quot;,
+  &quot;results&quot;: [
+    {
+      &quot;id&quot;: 0,
+      &quot;text&quot;: &quot;string&quot;,
+      &quot;rating&quot;: 0,
+      &quot;client&quot;: 0
+    }
+  ]
+}
+</code></pre>
+<h3 id="_10">Создание комментария</h3>
+<p>URL: /hotels/comments/create/ <br />
+Method: POST <br />
+Code: 200 OK <br />
+Request sample:   </p>
+<pre><code>{
+  &quot;text&quot;: &quot;string&quot;,
+  &quot;rating&quot;: 0,
+  &quot;client&quot;: 0
+}
+</code></pre>
+<h3 id="_11">Обновление/удаление комментария</h3>
+<p>URL: /hotels/comments/update/{id}/ <br />
+Method: GET, PUT, PATCH, DELETE <br />
+Code: 200 OK <br />
+Response sample:   </p>
+<pre><code>{
+  &quot;id&quot;: 0,
+  &quot;text&quot;: &quot;string&quot;,
+  &quot;rating&quot;: 0,
+  &quot;client&quot;: 0
+}
+</code></pre>
+<h3 id="_12">Просмотр комментария</h3>
+<p>URL: /hotels/comments/{id}/ <br />
+Method: GET <br />
+Code: 200 OK <br />
+Response sample:   </p>
+<pre><code>{
+  &quot;id&quot;: 0,
+  &quot;text&quot;: &quot;string&quot;,
+  &quot;rating&quot;: 0,
+  &quot;client&quot;: 0
+}
+</code></pre>
+<h2 id="hotelsemployees">/hotels/employees/</h2>
+<h3 id="_13">Список сотрудников</h3>
+<p>URL: /hotels/employees/ <br />
+Method: GET <br />
+Code: 200 OK <br />
+Response sample:   </p>
+<pre><code>{
+  &quot;count&quot;: 0,
+  &quot;next&quot;: &quot;http://example.com&quot;,
+  &quot;previous&quot;: &quot;http://example.com&quot;,
+  &quot;results&quot;: [
+    {
+      &quot;id&quot;: 0,
+      &quot;last_name&quot;: &quot;string&quot;,
+      &quot;first_name&quot;: &quot;string&quot;,
+      &quot;patronymic&quot;: &quot;string&quot;,
+      &quot;floor&quot;: 0,
+      &quot;day&quot;: &quot;string&quot;
+    }
+  ]
+}
+</code></pre>
+<h3 id="_14">Создание сотрудника</h3>
+<p>URL: /hotels/employees/create/ <br />
+Method: POST <br />
+Code: 200 OK <br />
+Request sample:   </p>
+<pre><code>{
+  &quot;last_name&quot;: &quot;string&quot;,
+  &quot;first_name&quot;: &quot;string&quot;,
+  &quot;patronymic&quot;: &quot;string&quot;,
+  &quot;floor&quot;: 0,
+  &quot;day&quot;: &quot;string&quot;
+}
+</code></pre>
+<h3 id="_15">Обновление/удаление сотрудника</h3>
+<p>URL: /hotels/employees/update/{id}/ <br />
+Method: GET, PUT, PATCH, DELETE <br />
+Code: 200 OK <br />
+Response sample:   </p>
+<pre><code>{
+  &quot;id&quot;: 0,
+  &quot;last_name&quot;: &quot;string&quot;,
+  &quot;first_name&quot;: &quot;string&quot;,
+  &quot;patronymic&quot;: &quot;string&quot;,
+  &quot;floor&quot;: 0,
+  &quot;day&quot;: &quot;string&quot;
+}
+</code></pre>
+<h3 id="_16">Просмотр сотрудника</h3>
+<p>URL: /hotels/employees/{id}/ <br />
+Method: GET <br />
+Code: 200 OK <br />
+Response sample:   </p>
+<pre><code>{
+  &quot;id&quot;: 0,
+  &quot;last_name&quot;: &quot;string&quot;,
+  &quot;first_name&quot;: &quot;string&quot;,
+  &quot;patronymic&quot;: &quot;string&quot;,
+  &quot;floor&quot;: 0,
+  &quot;day&quot;: &quot;string&quot;
+}
+</code></pre>
+<h2 id="hotelsrooms">/hotels/rooms/</h2>
+<h3 id="_17">Список комнат</h3>
+<p>URL: /hotels/rooms/ <br />
+Method: GET <br />
+Code: 200 OK <br />
+Response sample:   </p>
+<pre><code>{
+  &quot;count&quot;: 0,
+  &quot;next&quot;: &quot;http://example.com&quot;,
+  &quot;previous&quot;: &quot;http://example.com&quot;,
+  &quot;results&quot;: [
+    {
+      &quot;id&quot;: 0,
+      &quot;number&quot;: 0,
+      &quot;type&quot;: &quot;single&quot;,
+      &quot;phone&quot;: &quot;string&quot;,
+      &quot;price&quot;: 0,
+      &quot;floor&quot;: 0,
+      &quot;client_in&quot;: [
+        0
+      ]
+    }
+  ]
+}
+</code></pre>
+<h3 id="_18">Создание комнаты</h3>
+<p>URL: /hotels/rooms/create/ <br />
+Method: POST <br />
+Code: 200 OK <br />
+Request sample:   </p>
+<pre><code>{
+  &quot;number&quot;: 0,
+  &quot;type&quot;: &quot;single&quot;,
+  &quot;phone&quot;: &quot;string&quot;,
+  &quot;price&quot;: 0,
+  &quot;floor&quot;: 0
+}
+</code></pre>
+<h3 id="_19">Обновление/удаление комнаты</h3>
+<p>URL: /hotels/rooms/update/{id}/ <br />
+Method: GET, PUT, PATCH, DELETE <br />
+Code: 200 OK <br />
+Response sample:   </p>
+<pre><code>{
+  &quot;id&quot;: 0,
+  &quot;number&quot;: 0,
+  &quot;type&quot;: &quot;single&quot;,
+  &quot;phone&quot;: &quot;string&quot;,
+  &quot;price&quot;: 0,
+  &quot;floor&quot;: 0,
+  &quot;client_in&quot;: [
+    0
+  ]
+}
+</code></pre>
+<h3 id="_20">Просмотр комнаты</h3>
+<p>URL: /hotels/rooms/{id}/ <br />
+Method: GET <br />
+Code: 200 OK <br />
+Response sample:   </p>
+<pre><code>{
+  &quot;id&quot;: 0,
+  &quot;client_in&quot;: [
+    {
+      &quot;id&quot;: 0,
+      &quot;last_login&quot;: &quot;2019-08-24T14:15:22Z&quot;,
+      &quot;is_superuser&quot;: true,
+      &quot;email&quot;: &quot;user@example.com&quot;,
+      &quot;is_staff&quot;: true,
+      &quot;is_active&quot;: true,
+      &quot;date_joined&quot;: &quot;2019-08-24T14:15:22Z&quot;,
+      &quot;username&quot;: &quot;string&quot;,
+      &quot;password&quot;: &quot;string&quot;,
+      &quot;passport&quot;: &quot;string&quot;,
+      &quot;last_name&quot;: &quot;string&quot;,
+      &quot;first_name&quot;: &quot;string&quot;,
+      &quot;patronymic&quot;: &quot;string&quot;,
+      &quot;town&quot;: &quot;string&quot;,
+      &quot;number&quot;: 0,
+      &quot;groups&quot;: [
+        0
+      ],
+      &quot;user_permissions&quot;: [
+        0
+      ],
+      &quot;room_booked&quot;: [
+        0
+      ]
+    }
+  ],
+  &quot;number&quot;: 0,
+  &quot;type&quot;: &quot;single&quot;,
+  &quot;phone&quot;: &quot;string&quot;,
+  &quot;price&quot;: 0,
+  &quot;floor&quot;: 0
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../3.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D1%82%D0%B0%D0%BF%D0%BE%D0%B2%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8/1.%20%D0%9A%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B8%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B8%20%D0%BE%D1%80%D0%BA%D0%B5%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F/1%20%D1%87%D0%B0%D1%81%D1%82%D1%8C/" class="btn btn-neutral float-right" title="Контейниризация средствами Docker">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../1.%20%D0%A6%D0%B5%D0%BB%D1%8C%20%D0%B8%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/" class="btn btn-neutral" title="Цель и задачи"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../1.%20%D0%A6%D0%B5%D0%BB%D1%8C%20%D0%B8%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../3.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%8D%D1%82%D0%B0%D0%BF%D0%BE%D0%B2%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8/1.%20%D0%9A%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B8%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B8%20%D0%BE%D1%80%D0%BA%D0%B5%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F/1%20%D1%87%D0%B0%D1%81%D1%82%D1%8C/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
